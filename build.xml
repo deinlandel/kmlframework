@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<project name="kmlframework" default="jar" basedir=".">
+
+	<property name="projectname" value="kmlframework"/>
+	<property name="src.dir" location="${basedir}/src"/>
+	<property name="lib.dir" location="${basedir}/lib"/>
+	<property name="doc.dir" location="${basedir}/docs"/>
+	<property name="javadoc.dir" location="${doc.dir}/javadoc"/>
+	<property name="bin.dir" location="${basedir}/bin"/>
+	<property name="jars.dir" location="jars"/>
+	<property name="distribution.dir" location="${basedir}/distribution"/>
+	
+	<property file="build.properties"/>
+	
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+		<pathelement location="${basedir}"/>
+		<pathelement location="${bin.dir}"/>
+	</path>
+	
+	<target name="compile">
+		<mkdir dir="${bin.dir}"/>
+		<javac srcdir="${src.dir}"
+			destdir="${bin.dir}"
+			debug="on"
+			classpathref="classpath"
+		/>
+	</target>
+	
+	<target name="jar">
+		<tstamp />
+		<delete dir="${jars.dir}"/>
+		<mkdir dir="${jars.dir}"/>
+		<jar jarfile="${jars.dir}/org.boehn.kmlframework_${DSTAMP}.jar" basedir="${bin.dir}"/>
+	</target>
+	
+	<target name="distribution" depends="jar,javadoc">
+		<tstamp />
+		<delete dir="${distribution.dir}"/>
+		<mkdir dir="${distribution.dir}"/>
+		<mkdir dir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}"/>
+		<copy file="${jars.dir}/org.boehn.kmlframework_${DSTAMP}.jar" todir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}"/>
+		<copy todir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}/documentation">
+			<fileset dir="${doc.dir}"/>
+		</copy>
+		<zip destfile="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}.zip" basedir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}" keepcompression="true"/>
+	</target>
+	
+	<target name="javadoc">
+		 <javadoc
+		 		packagenames="org.boehn.kmlframework.*"
+		       	sourcepath="${src.dir}"
+		        excludepackagenames="org.boehn.kmlframework.examples.*"
+		        defaultexcludes="yes"
+		        destdir="${javadoc.dir}"
+		        author="true"
+		        version="true"
+		        use="true"
+		        windowtitle="KML Framework API"
+		 		classpathref="classpath"
+		 />
+	</target>
+	
+	<target name="deploy" depends="distribution">
+		<taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" classpath="${lib.dir}/ant-googlecode-0.0.1.jar" name="gcupload"/>
+		<gcupload 
+		        username="${gc.username}" 
+		        password="${gc.password}" 
+		        projectname="kmlframework" 
+		        filename="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}.zip" 
+		        targetfilename="org.boehn.kmlframework_${DSTAMP}.zip"
+				summary="Version ${DSTAMP}"
+		/>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${jars.dir}"/>
+		<delete dir="${bin.dir}"/>
+	</target>
+
+</project>
