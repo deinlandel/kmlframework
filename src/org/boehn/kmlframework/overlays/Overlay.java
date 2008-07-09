@@ -1,0 +1,53 @@
+package org.boehn.kmlframework.overlays;
+
+import org.boehn.kmlframework.ModelElement;
+
+public abstract class Overlay implements ModelElement {
+
+	protected String name;
+	protected String description;
+	protected Icon icon;
+	protected Integer drawOrder;
+	protected Boolean visibility;
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public Integer getDrawOrder() {
+		return drawOrder;
+	}
+	
+	public void setDrawOrder(Integer drawOrder) {
+		this.drawOrder = drawOrder;
+	}
+	
+	public Icon getIcon() {
+		return icon;
+	}
+	
+	public void setIcon(Icon icon) {
+		this.icon = icon;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Boolean getVisibility() {
+		return visibility;
+	}
+	
+	public void setVisibility(Boolean visibility) {
+		this.visibility = visibility;
+	}
+	
+}

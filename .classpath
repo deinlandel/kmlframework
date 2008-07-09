@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="lib/xpp3_min-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="lib/xpp3_xpath-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="lib/xpp3-1.1.3.4.O.jar"/>
+	<classpathentry kind="lib" path="lib/ant-googlecode-0.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
