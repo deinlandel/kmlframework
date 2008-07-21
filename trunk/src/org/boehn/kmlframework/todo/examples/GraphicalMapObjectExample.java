@@ -6,23 +6,23 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.Coordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
+import org.boehn.kmlframework.coordinates.TimeAndPlace;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.boehn.kmlframework.todo.GraphicalModel;
 import org.boehn.kmlframework.todo.MapObject;
 import org.boehn.kmlframework.todo.MapObjectClass;
-import org.boehn.kmlframework.todo.Polygon;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.Coordinate;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
-import org.boehn.kmlframework.todo.coordinates.TimeAndPlace;
+//import org.boehn.kmlframework.todo.Polygon;
 
 public class GraphicalMapObjectExample {
 
 	public static void main(String[] args) throws KmlException, IOException {
 		
 		// We create a model
-		KmlDocument model = new KmlDocument();
+		Kml model = new Kml();
 		
 		// We define a MapObjectClass for a boat
 		MapObjectClass boatClass = new MapObjectClass("boat");
@@ -34,8 +34,8 @@ public class GraphicalMapObjectExample {
 		coordinates.add(new CartesianCoordinate(0.5, 1, 1));
 		coordinates.add(new CartesianCoordinate(0, 0.7, 1));
 		coordinates.add(new CartesianCoordinate(0, 0, 1));
-		Polygon polygon = new Polygon(coordinates);
-		boatModel.addGraphicalModelElement(polygon);
+//		Polygon polygon = new Polygon(coordinates);
+//		boatModel.addGraphicalModelElement(polygon);
 		boatClass.addModel(boatModel);
 		
 		// We create a boat object

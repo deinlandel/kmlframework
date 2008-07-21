@@ -6,12 +6,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
-import org.boehn.kmlframework.todo.coordinates.TimeAndPlace;
-import org.boehn.kmlframework.todo.style.Style;
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
+import org.boehn.kmlframework.coordinates.TimeAndPlace;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
+//import org.boehn.kmlframework.todo.style.Style;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -27,7 +27,7 @@ public class MapObjectClass {
 	private Integer tailVisibleFrom;
 	private Integer tailVisibleTo;
 	private String styleUrl;
-	private Style style;
+//	private Style style;
 	
 	public MapObjectClass(String className) {
 		this.className = className;
@@ -83,7 +83,7 @@ public class MapObjectClass {
 	public String getStyleUrl() {
 		return styleUrl;
 	}
-
+/*
 	public void setStyleUrl(String styleUrl) {
 		this.styleUrl = styleUrl;
 		// styleUrl and style cannot be set at the same time
@@ -99,7 +99,7 @@ public class MapObjectClass {
 		// styleUrl and style cannot be set at the same time
 		this.styleUrl = null;
 	}
-
+*/
 	public boolean getShowModels() {
 		return showModels;
 	}
@@ -140,7 +140,7 @@ public class MapObjectClass {
 		this.tailHistoryLimit = tailHistoryLimit;
 	}
 	
-	public void addKml(MapObject mapObject, Element parentElement, KmlDocument model, Document xmlDocument, EarthCoordinate location, Double rotation, CartesianCoordinate localReferenceCoordinate, CartesianCoordinate scale, String name) throws KmlException {
+	public void addKml(MapObject mapObject, Element parentElement, Kml model, Document xmlDocument, EarthCoordinate location, Double rotation, CartesianCoordinate localReferenceCoordinate, CartesianCoordinate scale, String name) throws KmlException {
 		if (models != null || (mapObject.getMovements() != null && showTail)) {
 			
 			boolean objectHasGraphicalElementToDraw = false;
@@ -154,8 +154,8 @@ public class MapObjectClass {
 			} else {
 				graphicalModelsTemp = new ArrayList<GraphicalModel>(models);
 				GraphicalModel graphicalModel = new GraphicalModel();
-				Path path = new Path();
-				path.addCoordinate(location);
+//				Path path = new Path();
+//				path.addCoordinate(location);
 				
 				// We stop drawing the tail if passing the timeHistoryLimit
 				Date timeHistoryLimitAbsolute;
@@ -172,31 +172,31 @@ public class MapObjectClass {
 						// We stop drawing the tail because the tail history has passed the timeHistoryLimit
 						break;
 					}
-					path.addCoordinate(timeAndPlace.getPlace());
+//					path.addCoordinate(timeAndPlace.getPlace());
 				}
-				graphicalModel.addGraphicalModelElement(path);
+//				graphicalModel.addGraphicalModelElement(path);
 				graphicalModel.setVisibleFrom(tailVisibleFrom);
 				graphicalModel.setVisibleTo(tailVisibleTo);
 				graphicalModelsTemp.add(graphicalModel);
 			}
-			Double distanceToObserver = (model.getObserver() != null && mapObject.getLocation() != null) ? model.getObserver().distanceTo(mapObject.getLocation()) : null;
+			/*Double distanceToObserver = (model.getObserver() != null && mapObject.getLocation() != null) ? model.getObserver().distanceTo(mapObject.getLocation()) : null;
 			for (GraphicalModel graphicalModel : graphicalModelsTemp) {
 				if (!model.ENABLE_DETAILS_DEPENDS_ON_DISTANCE_TO_OBSERVER || (distanceToObserver == null || (graphicalModel.getVisibleTo() == null || graphicalModel.getVisibleTo() > distanceToObserver) && (graphicalModel.getVisibleFrom() == null || graphicalModel.getVisibleFrom() < distanceToObserver))) {
 					graphicalModel.addKml(multiGeometryElement, model, xmlDocument, location, rotation, localReferenceCoordinate, scale);
 					objectHasGraphicalElementToDraw = true;
 				}
-			}
+			}*/
 
 			if (objectHasGraphicalElementToDraw) {
 				Element placemarkElement = xmlDocument.createElement("Placemark");
 				Element nameElement = xmlDocument.createElement("name");
 				nameElement.appendChild(xmlDocument.createTextNode((name != null) ? name + " model" : "model"));
 				placemarkElement.appendChild(nameElement);
-				if (styleUrl != null || style != null) {
-					Element styleUrlElement = xmlDocument.createElement("styleUrl");
-					styleUrlElement.appendChild(xmlDocument.createTextNode((styleUrl != null ? styleUrl : "#" + style.getId())));
-					placemarkElement.appendChild(styleUrlElement);
-				}
+//				if (styleUrl != null || style != null) {
+//					Element styleUrlElement = xmlDocument.createElement("styleUrl");
+//					styleUrlElement.appendChild(xmlDocument.createTextNode((styleUrl != null ? styleUrl : "#" + style.getId())));
+//					placemarkElement.appendChild(styleUrlElement);
+//				}
 				placemarkElement.appendChild(multiGeometryElement);
 				parentElement.appendChild(placemarkElement);
 			}

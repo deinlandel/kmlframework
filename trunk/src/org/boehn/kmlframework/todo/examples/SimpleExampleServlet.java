@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
 import org.boehn.kmlframework.todo.MapObject;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
 import org.boehn.kmlframework.todo.servlet.HttpServletModel;
 
 public class SimpleExampleServlet extends HttpServlet {

@@ -8,9 +8,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.boehn.kmlframework.AltitudeModeEnum;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.Coordinate;
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.Coordinate;
+import org.boehn.kmlframework.kml.AltitudeModeEnum;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -82,7 +82,7 @@ public class ModelObjectFactory {
 							mapObjectClass.setTailVisibleTo(new Integer(mapObjectClassAttributes.getNamedItem("tailVisibleTo").getNodeValue()));
 						}
 						if (mapObjectClassAttributes.getNamedItem("styleUrl") != null) {
-							mapObjectClass.setStyleUrl(mapObjectClassAttributes.getNamedItem("styleUrl").getNodeValue());
+							//mapObjectClass.setStyleUrl(mapObjectClassAttributes.getNamedItem("styleUrl").getNodeValue());
 						}
 						
 						// We load the children to the mapObjectClass
@@ -105,20 +105,20 @@ public class ModelObjectFactory {
 								for (int l = 0; l < modelChildren.getLength(); l++) {
 									Node modelChild =modelChildren.item(l);
 									if ("polygon".equals(modelChild.getNodeName()) || "path".equals(modelChild.getNodeName())) {
-										Path path;
+										//Path path;
 										if ("polygon".equals(modelChild.getNodeName())) {
-											path = new Polygon();
+											//path = new Polygon();
 										} else {
-											path = new Path();
+											//path = new Path();
 										}
 										
 										// We read the attributes to the path/polygon element
 										NamedNodeMap modelChildAttributes = modelChild.getAttributes();
 										if (modelChildAttributes.getNamedItem("altitudeMode") != null) {
-											path.setAltitudeMode(AltitudeModeEnum.valueOf(modelChildAttributes.getNamedItem("altitudeMode").getNodeValue()));
+											//path.setAltitudeMode(AltitudeModeEnum.valueOf(modelChildAttributes.getNamedItem("altitudeMode").getNodeValue()));
 										}
 										if (modelChildAttributes.getNamedItem("extrude") != null) {
-											path.setExtrude(new Boolean(modelChildAttributes.getNamedItem("extrude").getNodeValue()));
+											//path.setExtrude(new Boolean(modelChildAttributes.getNamedItem("extrude").getNodeValue()));
 										}
 										
 										// We read the children to the path/polygon
@@ -128,10 +128,10 @@ public class ModelObjectFactory {
 											if ("coordinate".equals(pathChild.getNodeName())) {
 												NamedNodeMap coordinateAttributes = pathChild.getAttributes();
 												Coordinate coordinate = new CartesianCoordinate(Double.parseDouble(coordinateAttributes.getNamedItem("x").getNodeValue()), Double.parseDouble(coordinateAttributes.getNamedItem("y").getNodeValue()), Double.parseDouble(coordinateAttributes.getNamedItem("z").getNodeValue()));
-												path.addCoordinate(coordinate);
+												//path.addCoordinate(coordinate);
 											}
 										}
-										model.addGraphicalModelElement(path);
+										//model.addGraphicalModelElement(path);
 									}
 								}
 								mapObjectClass.addModel(model);
