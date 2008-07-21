@@ -1,7 +1,7 @@
 package org.boehn.kmlframework.todo.servlet;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -63,7 +63,7 @@ public class NetworkLinkControl {
 		this.minRefreshPeriod = minRefreshPeriod;
 	}
 
-	public void addKml(Element parentElement, KmlDocument model, Document xmlDocument) throws KmlException {
+	public void addKml(Element parentElement, Kml model, Document xmlDocument) throws KmlException {
 		Element networkLinkControlElement = xmlDocument.createElement("NetworkLinkControl");
 		
 		if (cookie != null) {

@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.boehn.kmlframework.KmlDocument;
 //import org.boehn.kmlframework.KmlDocumentElement;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.boehn.kmlframework.todo.BoundingBox;
-import org.boehn.kmlframework.todo.ViewPosition;
-import org.boehn.kmlframework.todo.style.Style;
+//import org.boehn.kmlframework.todo.ViewPosition;
+//import org.boehn.kmlframework.todo.style.Style;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class HttpServletModel extends KmlDocument {
+public class HttpServletModel extends Kml {
 
 	private NetworkLinkControl networkLinkControl;
 	private String baseUrl;
@@ -42,9 +42,9 @@ public class HttpServletModel extends KmlDocument {
 	}
 	
 
-	public NetworkLinkControl getNetworkLinkControl() {
+	/*public NetworkLinkControl getNetworkLinkControl() {
 		return networkLinkControl;
-	}
+	}*/
 
 	public void setNetworkLinkControl(NetworkLinkControl networkLinkControl) {
 		this.networkLinkControl = networkLinkControl;
@@ -57,7 +57,7 @@ public class HttpServletModel extends KmlDocument {
 			return "http://" + request.getLocalName() + ":" + request.getLocalPort() + request.getContextPath();
 		}
 	}
-	
+	/*
 	@Override
 	public Observer getObserver() {
 		if (super.getObserver() == null && request != null) {
@@ -86,7 +86,7 @@ public class HttpServletModel extends KmlDocument {
 	public void setRequest(HttpServletRequest request) {
 		this.request = request;
 		setObserver(null);
-	}
+	}*/
 
 	public HttpServletResponse getResponse() {
 		return response;

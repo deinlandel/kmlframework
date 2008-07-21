@@ -7,7 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.boehn.kmlframework.KmlDocument;
+import org.boehn.kmlframework.kml.Kml;
 import org.boehn.kmlframework.todo.servlet.HttpServletModel;
 
 
@@ -58,8 +58,8 @@ public class Button {
 		this.parameters = parameters;
 	}
 
-	public String toHtml(KmlDocument model) {
-		try {		
+	public String toHtml(Kml model) {
+		//try {		
 			StringBuffer html = new StringBuffer();
 			StringBuffer urlToUse;
 			if (url.startsWith("http://")) {
@@ -68,22 +68,22 @@ public class Button {
 				// The url is not absolute. We need info from the HttpServletModel
 				if (model instanceof HttpServletModel) {
 					HttpServletModel httpServleModel = (HttpServletModel) model;
-					urlToUse = new StringBuffer(encodeURL(httpServleModel.getBaseUrl() + url, httpServleModel.getRequest()));
+					//urlToUse = new StringBuffer(encodeURL(httpServleModel.getBaseUrl() + url, httpServleModel.getRequest()));
 				} else {
 					throw new IllegalArgumentException("Button has an url that is not absolute (does not starts with 'http://'). Then the model must be an instance of the HttpServletModel class.");
 				}
 			}
 			if (parameters != null) {
-				urlToUse.append("?");
+				//urlToUse.append("?");
 				for (Object key: parameters.keySet()) {
-					urlToUse.append("&" + URLEncoder.encode(key.toString(), "UTF-8") + "=" + URLEncoder.encode(parameters.get(key).toString(), "UTF-8"));
+					//urlToUse.append("&" + URLEncoder.encode(key.toString(), "UTF-8") + "=" + URLEncoder.encode(parameters.get(key).toString(), "UTF-8"));
 				}
 			}
-			html.append("<a href=\"" + urlToUse.toString() + "\">" + text + "</a>");
+			//html.append("<a href=\"" + urlToUse.toString() + "\">" + text + "</a>");
 			return html.toString();
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
+		//} catch (UnsupportedEncodingException e) {
+		//	throw new RuntimeException(e);
+		//}
 	}
 	
 	public String encodeURL(String url, HttpServletRequest request) {

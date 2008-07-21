@@ -2,12 +2,12 @@ package org.boehn.kmlframework.todo.examples;
 
 import java.io.IOException;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.boehn.kmlframework.todo.MapObject;
 import org.boehn.kmlframework.todo.ModelObjectFactory;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
 
 public class ModelObjectFactoryExample {
 	
@@ -16,7 +16,7 @@ public class ModelObjectFactoryExample {
 		try {
 			
 			// We create a model
-			KmlDocument model = new KmlDocument();
+			Kml model = new Kml();
 			
 			// We create a ModelObjectFactory from a symbol file
 			ModelObjectFactory modelObjectFactory = new ModelObjectFactory("resources/symbols/symbols.xml");

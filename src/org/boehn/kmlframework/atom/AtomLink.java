@@ -1,7 +1,7 @@
 package org.boehn.kmlframework.atom;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 
 public class AtomLink {
 
@@ -21,11 +21,12 @@ public class AtomLink {
 		this.href = href;
 	}
 	
-	public void write(KmlDocument kmlDocument) throws KmlException {
+	public void write(Kml kml) throws KmlException {
 		if (href == null) {
 			throw new KmlException("href not set for atom:Link");
 		}
-		kmlDocument.println("<atom:link href=\"" + href + "\" />");
+		kml.println("<atom:link href=\"" + href + "\" />");
+		kml.setAtomElementsIncluded(true);
 	}
 	
 }

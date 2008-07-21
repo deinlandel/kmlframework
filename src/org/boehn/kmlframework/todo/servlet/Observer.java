@@ -1,22 +1,22 @@
 package org.boehn.kmlframework.todo.servlet;
 
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
 import org.boehn.kmlframework.todo.BoundingBox;
-import org.boehn.kmlframework.todo.ViewPosition;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
+//import org.boehn.kmlframework.todo.ViewPosition;
 
 public class Observer {
 
 	private BoundingBox boundingBox;
-	private ViewPosition viewPosition;
+//	private ViewPosition viewPosition;
 	private CartesianCoordinate observerCoordinate;
 	
 	public Observer() {}
 	
-	public Observer(BoundingBox boundingBox, ViewPosition viewPosition) {
+/*	public Observer(BoundingBox boundingBox, ViewPosition viewPosition) {
 		this.boundingBox = boundingBox;
 		this.viewPosition = viewPosition;
-	}
+	}*/
 
 	public Boolean isVisibleToObserver(EarthCoordinate earthCoordinate) {
 		if (boundingBox != null) {
@@ -26,7 +26,7 @@ public class Observer {
 		}
 	}
 	
-	public Double distanceTo(EarthCoordinate earthCoordinate) {
+/*	public Double distanceTo(EarthCoordinate earthCoordinate) {
 		if (earthCoordinate != null) {
 			return distanceTo(earthCoordinate.toCartesianCoordinate());
 		} else {
@@ -85,6 +85,6 @@ public class Observer {
 
 	public ViewPosition getViewPosition() {
 		return viewPosition;
-	}
+	}*/
 	
 }

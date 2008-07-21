@@ -3,9 +3,9 @@ package org.boehn.kmlframework.todo.servlet;
 import java.io.IOException;
 import java.io.Writer;
 
-import org.boehn.kmlframework.KmlDocument;
 //import org.boehn.kmlframework.KmlDocumentElement;
-import org.boehn.kmlframework.KmlException;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 //import org.xmlpull.v1.XmlSerializer;
@@ -123,13 +123,13 @@ public class NetworkLink /*implements KmlDocumentElement*/ {
 			System.err.println("Usage: java org.boehn.gef.elements.NetworkLink <url> <name> <destinationFile>");
 			System.exit(-1);
 		} else {
-			KmlDocument model = new KmlDocument();
+			Kml model = new Kml();
 			//model.add(new NetworkLink(args[0], args[1]));
 			//model.write(args[2]);
 		}
 	}
 
-	public void addKml(Element parentElement, KmlDocument model, Document xmlDocument) throws KmlException {
+	public void addKml(Element parentElement, Kml model, Document xmlDocument) throws KmlException {
 
 		Element networkLinkElement = xmlDocument.createElement("NetworkLink");
 		
@@ -197,7 +197,7 @@ public class NetworkLink /*implements KmlDocumentElement*/ {
 		
 	}*/
 
-	public void addKmlDirect(KmlDocument model, Writer writer) throws IOException {
+	public void addKmlDirect(Kml model, Writer writer) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,6 +1,6 @@
 package org.boehn.kmlframework.todo;
 
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
 
 public class BoundingBox {
 

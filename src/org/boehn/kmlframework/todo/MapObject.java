@@ -6,11 +6,11 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.boehn.kmlframework.KmlDocument;
-import org.boehn.kmlframework.KmlException;
-import org.boehn.kmlframework.todo.coordinates.CartesianCoordinate;
-import org.boehn.kmlframework.todo.coordinates.EarthCoordinate;
-import org.boehn.kmlframework.todo.coordinates.TimeAndPlace;
+import org.boehn.kmlframework.coordinates.CartesianCoordinate;
+import org.boehn.kmlframework.coordinates.EarthCoordinate;
+import org.boehn.kmlframework.coordinates.TimeAndPlace;
+import org.boehn.kmlframework.kml.Kml;
+import org.boehn.kmlframework.kml.KmlException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 //import org.xmlpull.v1.XmlSerializer;
@@ -113,7 +113,7 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		this.description = description;
 	}
 	
-	public String getDescriptionTextWithButtons(KmlDocument model) {
+	public String getDescriptionTextWithButtons(Kml model) {
 		StringBuffer result = new StringBuffer();
 		if (buttons != null) {
 			for (Button button : buttons) {
@@ -151,7 +151,7 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		this.snippet = snippet;
 	}
 
-	public void addKml(KmlDocument kmlDocument, PrintWriter printWriter) {
+	public void addKml(Kml kmlDocument, PrintWriter printWriter) {
 		printWriter.println("<Placemark>");
 		if (name != null) {
 			printWriter.println("<name>" + name + "</name>");
@@ -159,7 +159,7 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		printWriter.println("</Placemark>");
 	}
 	
-	public void addKml(Element parentElement, KmlDocument model, Document xmlDocument) throws KmlException {
+	public void addKml(Element parentElement, Kml model, Document xmlDocument) throws KmlException {
 		
 		Element placemarkElement = xmlDocument.createElement("Placemark");
 		
@@ -186,15 +186,15 @@ public class MapObject /*implements KmlDocumentElement*/ {
 			
 			mapObjectClass.addKml(this, parentElement, model, xmlDocument, location, rotation, localReferenceCoordinate, scale, name);
 			
-			if (mapObjectClass.getStyleUrl() != null || mapObjectClass.getStyle() != null) {
+			/*if (mapObjectClass.getStyleUrl() != null || mapObjectClass.getStyle() != null) {
 				Element styleUrlElement = xmlDocument.createElement("styleUrl");
 				styleUrlElement.appendChild(xmlDocument.createTextNode((mapObjectClass.getStyleUrl() != null ? mapObjectClass.getStyleUrl() : "#" + mapObjectClass.getStyle().getId())));
 				placemarkElement.appendChild(styleUrlElement);
-			}
+			}*/
 		}
 		
 		if (location != null) {
-			location.addKml(placemarkElement, model, xmlDocument);
+			//location.addKml(placemarkElement, model, xmlDocument);
 		}
 		
 		if (visibility != null) {
@@ -229,7 +229,7 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		serializer.endTag(null, "Placemark");
 	}*/
 
-	public void addKmlDirect(KmlDocument model, Writer writer) throws IOException {
+	public void addKmlDirect(Kml model, Writer writer) throws IOException {
 		// TODO this is a temp method for speed testing
 		writer.write("<Placemark>");
 		
@@ -243,7 +243,7 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		}
 		
 		if (location != null) {
-			location.addKmlDirect(model, writer);
+			//location.addKmlDirect(model, writer);
 		}
 		writer.write("</Placemark>");
 	}

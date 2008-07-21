@@ -43,6 +43,9 @@
 		<copy todir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}/documentation">
 			<fileset dir="${doc.dir}"/>
 		</copy>
+		<copy todir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}/src">
+			<fileset dir="${src.dir}"/>
+		</copy>
 		<zip destfile="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}.zip" basedir="${distribution.dir}/org.boehn.kmlframework_${DSTAMP}" keepcompression="true"/>
 	</target>
 	
