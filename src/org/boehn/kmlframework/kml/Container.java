@@ -34,7 +34,6 @@ public abstract class Container extends Feature {
 	
 	public void writeInner(Kml kml) throws KmlException {
 		super.writeInner(kml);
-		System.out.println("size: " + features.size());
 		if (features != null) {
 			for (Feature feature: features) {
 				feature.write(kml);
