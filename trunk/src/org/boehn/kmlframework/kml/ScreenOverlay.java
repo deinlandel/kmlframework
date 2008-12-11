@@ -1,5 +1,7 @@
 package org.boehn.kmlframework.kml;
 
+import java.util.List;
+
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
@@ -25,8 +27,8 @@ public class ScreenOverlay extends Overlay {
 	
 	public ScreenOverlay() {}
 	
-	public ScreenOverlay(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, StyleSelector styleSelector, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double overlayX, Double overlayY, UnitEnum overlayXunits, UnitEnum overlayYunits, Double screenX, Double screenY, UnitEnum screenXunits, UnitEnum screenYunits, Double rotationX, Double rotationY, UnitEnum rotationXunits, UnitEnum rotationYunits, Double sizeX, Double sizeY, UnitEnum sizeXunits, UnitEnum sizeYunits, Double rotation) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelector, region, extendedData, color, drawOrder, icon);
+	public ScreenOverlay(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double overlayX, Double overlayY, UnitEnum overlayXunits, UnitEnum overlayYunits, Double screenX, Double screenY, UnitEnum screenXunits, UnitEnum screenYunits, Double rotationX, Double rotationY, UnitEnum rotationXunits, UnitEnum rotationYunits, Double sizeX, Double sizeY, UnitEnum sizeXunits, UnitEnum sizeYunits, Double rotation) {
+		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, color, drawOrder, icon);
 		this.overlayX = overlayX;
 		this.overlayY = overlayY;
 		this.overlayXunits = overlayXunits;
