@@ -1,5 +1,8 @@
 package org.boehn.kmlframework.kml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
@@ -19,13 +22,13 @@ public abstract class Feature extends KmlObject {
 	private AbstractView abstractView;
 	private TimePrimitive timePrimitive;
 	private String styleUrl;
-	private StyleSelector styleSelector;
+	private List<StyleSelector> styleSelectors;
 	private Region region;
 	private ExtendedData extendedData;
 	
 	public Feature() {}
 	
-	public Feature(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, StyleSelector styleSelector, Region region, ExtendedData extendedData) {
+	public Feature(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData) {
 		this.name = name;
 		this.visability = visability;
 		this.open = open;
@@ -40,7 +43,7 @@ public abstract class Feature extends KmlObject {
 		this.abstractView = abstractView;
 		this.timePrimitive = timePrimitive;
 		this.styleUrl = styleUrl;
-		this.styleSelector = styleSelector;
+		this.styleSelectors = styleSelectors;
 		this.region = region;
 		this.extendedData = extendedData;
 	}
@@ -149,12 +152,19 @@ public abstract class Feature extends KmlObject {
 		this.styleUrl = styleUrl;
 	}
 	
-	public StyleSelector getStyleSelector() {
-		return styleSelector;
+	public List<StyleSelector> getStyleSelectors() {
+		return styleSelectors;
 	}
 
-	public void setStyleSelector(StyleSelector styleSelector) {
-		this.styleSelector = styleSelector;
+	public void setStyleSelectors(List<StyleSelector> styleSelectors) {
+		this.styleSelectors = styleSelectors;
+	}
+	
+	public void addStyleSelector(StyleSelector styleSelector) {
+		if (styleSelectors == null) {
+			styleSelectors = new ArrayList<StyleSelector>();
+		}
+		styleSelectors.add(styleSelector);
 	}
 
 	public TimePrimitive getTimePrimitive() {
@@ -221,8 +231,10 @@ public abstract class Feature extends KmlObject {
 		if (styleUrl!= null) {
 			kml.println("<styleUrl>" + styleUrl + "</styleUrl>");
 		}
-		if (styleSelector != null) {
-			styleSelector.write(kml);
+		if (styleSelectors != null) {
+			for (StyleSelector styleSelector : styleSelectors) {
+				styleSelector.write(kml);				
+			}
 		}
 		if (region != null) {
 			region.write(kml);

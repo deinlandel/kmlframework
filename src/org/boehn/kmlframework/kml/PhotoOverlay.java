@@ -1,5 +1,7 @@
 package org.boehn.kmlframework.kml;
 
+import java.util.List;
+
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
@@ -20,8 +22,8 @@ public class PhotoOverlay extends Overlay {
 	
 	public PhotoOverlay() {}
 	
-	public PhotoOverlay(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, StyleSelector styleSelector, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double rotation, Double leftFov, Double rightFov, Double bottomFov, Double topFov, Double near, Integer tileSize, Integer maxWidth, Integer maxHeight, GridOriginEnum gridOrigin, Point point, ShapeEnum shape) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelector, region, extendedData, color, drawOrder, icon);
+	public PhotoOverlay(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double rotation, Double leftFov, Double rightFov, Double bottomFov, Double topFov, Double near, Integer tileSize, Integer maxWidth, Integer maxHeight, GridOriginEnum gridOrigin, Point point, ShapeEnum shape) {
+		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, color, drawOrder, icon);
 		this.rotation = rotation;
 		this.leftFov = leftFov;
 		this.rightFov = rightFov;

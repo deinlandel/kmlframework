@@ -1,5 +1,7 @@
 package org.boehn.kmlframework.kml;
 
+import java.util.List;
+
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
@@ -11,8 +13,8 @@ public class NetworkLink extends Feature {
 	
 	public NetworkLink() {}
 	
-	public NetworkLink(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, StyleSelector styleSelector, Region region, ExtendedData extendedData, Boolean refreshVisability, Boolean flyToView, Link link) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelector, region, extendedData);
+	public NetworkLink(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, Boolean refreshVisability, Boolean flyToView, Link link) {
+		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData);
 		this.refreshVisibility = refreshVisability;
 		this.flyToView = flyToView;
 		this.link = link;
