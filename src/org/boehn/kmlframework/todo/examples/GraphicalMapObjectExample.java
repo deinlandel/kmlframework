@@ -66,7 +66,7 @@ public class GraphicalMapObjectExample {
 		//model.add(boat);
 		
 		// In order to make the kml more human readable we may activate indenting
-		model.XML_INDENT = true;
+		model.setXmlIndent(true);
 		
 		// We generate the kml file
 		//model.write("boat.kml");

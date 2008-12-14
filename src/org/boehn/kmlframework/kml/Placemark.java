@@ -33,7 +33,6 @@ public class Placemark extends Feature {
 	}
 
 	public void write(Kml kml) throws KmlException {
-		System.out.println("writing placemark");
 		kml.println("<Placemark" + getIdAndTargetIdFormatted(kml) + ">", 1);
 		writeInner(kml);
 		if (geometry != null) {

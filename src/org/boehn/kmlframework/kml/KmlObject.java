@@ -1,5 +1,7 @@
 package org.boehn.kmlframework.kml;
 
+import java.util.UUID;
+
 public abstract class KmlObject {
 
 	private String id;
@@ -27,7 +29,7 @@ public abstract class KmlObject {
 	
 	protected String getIdAndTargetIdFormatted(Kml kml) {
 		if (kml.isGenerateObjectIds() && id == null) {
-			setId(this.getClass().getName() + "@" + Integer.toHexString(this.hashCode())); // TODO this is not guaranteeing an unique id? Maybe use a UUID instead?
+			setId(UUID.randomUUID().toString());
 		}
 		String result = "";
 		if (id != null) {

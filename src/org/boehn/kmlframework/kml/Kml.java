@@ -15,13 +15,21 @@ public class Kml {
 	
 	private PrintWriter printWriter;
 	private int indentLevel = 0;
-	public boolean XML_INDENT = false;
+	private boolean xmlIndent = false;
 	
 	public Kml() {}
 	
 	public Kml(NetworkLinkControl networkLinkControl, Feature feature) {
 		this.networkLinkControl = networkLinkControl;
 		this.feature = feature;
+	}
+	
+	public void setXmlIndent(boolean xmlIndent) {
+		this.xmlIndent = xmlIndent;
+	}
+	
+	public boolean getXmlIndent() {
+		return xmlIndent;
 	}
 
 	public NetworkLinkControl getNetworkLinkControl() {
@@ -97,7 +105,7 @@ public class Kml {
 	}
 	
 	private void printIndents() {
-		if (XML_INDENT) {
+		if (xmlIndent) {
 			for (int i = 0; i < indentLevel; i++) {
 				printWriter.print("\t");
 			}
