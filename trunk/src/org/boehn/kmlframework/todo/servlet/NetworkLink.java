@@ -1,14 +1,9 @@
 package org.boehn.kmlframework.todo.servlet;
 
-import java.io.IOException;
-import java.io.Writer;
-
-//import org.boehn.kmlframework.KmlDocumentElement;
 import org.boehn.kmlframework.kml.Kml;
 import org.boehn.kmlframework.kml.KmlException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-//import org.xmlpull.v1.XmlSerializer;
 
 public class NetworkLink /*implements KmlDocumentElement*/ {
 
@@ -118,6 +113,7 @@ public class NetworkLink /*implements KmlDocumentElement*/ {
 		this.open = open;
 	}
 	
+	/*
 	public static void main(String[] args) throws KmlException, IOException {
 		if (args.length != 3) {
 			System.err.println("Usage: java org.boehn.gef.elements.NetworkLink <url> <name> <destinationFile>");
@@ -127,7 +123,7 @@ public class NetworkLink /*implements KmlDocumentElement*/ {
 			//model.add(new NetworkLink(args[0], args[1]));
 			//model.write(args[2]);
 		}
-	}
+	}*/
 
 	public void addKml(Element parentElement, Kml model, Document xmlDocument) throws KmlException {
 
@@ -190,15 +186,5 @@ public class NetworkLink /*implements KmlDocumentElement*/ {
 			networkLinkElement.appendChild(urlElement);
 		}
 		parentElement.appendChild(networkLinkElement);
-	}
-
-	/*public void addKmlXPP(KmlDocument model, XmlSerializer serializer) throws IllegalArgumentException, IllegalStateException, IOException {
-		// TODO Auto-generated method stub
-		
-	}*/
-
-	public void addKmlDirect(Kml model, Writer writer) throws IOException {
-		// TODO Auto-generated method stub
-		
 	}
 }

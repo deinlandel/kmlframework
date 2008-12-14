@@ -1,7 +1,5 @@
 package org.boehn.kmlframework.todo;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,7 +86,7 @@ public class Button {
 	
 	public String encodeURL(String url, HttpServletRequest request) {
 		// TODO This method should not be necessarily. There is a method for doing this in the HttpServletResponse.
-		// At the moment that method is not doing the encoding. No idea why. It used to work...
+		// At the moment that method is not doing the encoding...
 		int indexQuestionMark = url.indexOf("?");
 		if (indexQuestionMark < 0) {
 			return url + ";jsessionid=" + request.getSession().getId();

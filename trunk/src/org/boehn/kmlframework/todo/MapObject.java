@@ -1,8 +1,6 @@
 package org.boehn.kmlframework.todo;
 
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import org.boehn.kmlframework.kml.Kml;
 import org.boehn.kmlframework.kml.KmlException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-//import org.xmlpull.v1.XmlSerializer;
 
 public class MapObject /*implements KmlDocumentElement*/ {
 
@@ -204,48 +201,6 @@ public class MapObject /*implements KmlDocumentElement*/ {
 		}
 		
 		parentElement.appendChild(placemarkElement);
-	}
-
-	/*public void addKmlXPP(KmlDocument model, XmlSerializer serializer) throws IllegalArgumentException, IllegalStateException, IOException {
-		// TODO this is a temp method for speed testing
-		serializer.startTag(null, "Placemark");
-		
-		if (name != null) {
-			serializer.startTag(null, "name");
-			serializer.text(name);
-			serializer.endTag(null, "name");
-		}
-		
-		String descriptionText = getDescriptionTextWithButtons(model);
-		if (descriptionText != null) {
-			serializer.startTag(null, "description");
-			serializer.cdsect(descriptionText);
-			serializer.endTag(null, "description");
-		}
-		
-		if (location != null) {
-			location.addKmlXPP(model, serializer);
-		}
-		serializer.endTag(null, "Placemark");
-	}*/
-
-	public void addKmlDirect(Kml model, Writer writer) throws IOException {
-		// TODO this is a temp method for speed testing
-		writer.write("<Placemark>");
-		
-		if (name != null) {
-			writer.write("<name>" + name + "</name>");
-		}
-		
-		String descriptionText = getDescriptionTextWithButtons(model);
-		if (descriptionText != null) {
-			writer.write("<description>" + descriptionText + "</description>");
-		}
-		
-		if (location != null) {
-			//location.addKmlDirect(model, writer);
-		}
-		writer.write("</Placemark>");
 	}
 
 	public List<TimeAndPlace> getMovements() {
