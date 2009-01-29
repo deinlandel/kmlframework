@@ -42,6 +42,6 @@ public class Placemark extends Feature {
 	}
 	
 	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Placemark" + getIdAndTargetIdFormatted(kml) + "></>");
+		kml.println("<Placemark" + getIdAndTargetIdFormatted(kml) + "></Placemark>");
 	}	
 }
