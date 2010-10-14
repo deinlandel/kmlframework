@@ -170,8 +170,4 @@ public class Region extends KmlObject {
 		}
 		kml.println(-1, "</Region>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Region" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

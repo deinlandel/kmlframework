@@ -153,8 +153,4 @@ public class NetworkLinkControl extends KmlObject {
 		}
 		kml.println(-1, "</NetworkLinkControl>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<NetworkLinkControl" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

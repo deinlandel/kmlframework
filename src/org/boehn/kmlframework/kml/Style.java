@@ -90,8 +90,4 @@ public class Style extends StyleSelector {
 		}
 		kml.println(-1, "</Style>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Style" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

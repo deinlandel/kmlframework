@@ -31,8 +31,4 @@ public class SimpleData extends KmlObject {
 	public void write(Kml kml) throws KmlException {
 		kml.println("<SimpleData name=\"" + name +"\">" + value + "</SimpleData>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<SimpleData" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

@@ -48,9 +48,4 @@ public class Data extends KmlObject {
 		}
 		kml.println(-1, "</Data>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Data" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
-
 }

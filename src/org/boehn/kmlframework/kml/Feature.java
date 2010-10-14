@@ -9,7 +9,7 @@ import org.boehn.kmlframework.atom.AtomLink;
 public abstract class Feature extends KmlObject {
 	
 	private String name;
-	private Boolean visability;
+	private Boolean visibility;
 	private Boolean open;
 	private AtomAuthor atomAuthor;
 	private AtomLink atomLink;
@@ -28,9 +28,9 @@ public abstract class Feature extends KmlObject {
 	
 	public Feature() {}
 	
-	public Feature(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData) {
+	public Feature(String name, Boolean visibility, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData) {
 		this.name = name;
-		this.visability = visability;
+		this.visibility = visibility;
 		this.open = open;
 		this.atomAuthor = atomAuthor;
 		this.atomLink = atomLink;
@@ -56,12 +56,12 @@ public abstract class Feature extends KmlObject {
 		this.name = name;
 	}
 	
-	public Boolean isVisability() {
-		return visability;
+	public Boolean isVisibility() {
+		return visibility;
 	}
 	
-	public void setVisability(Boolean visability) {
-		this.visability = visability;
+	public void setVisibility(Boolean visibility) {
+		this.visibility = visibility;
 	}
 	
 	public boolean isOpen() {
@@ -195,8 +195,8 @@ public abstract class Feature extends KmlObject {
 		if (name != null) {
 			kml.println("<name>" + name + "</name>");
 		}
-		if (visability != null) {
-			kml.println("<visability>" + booleanToInt(visability) + "</visability>");
+		if (visibility != null) {
+			kml.println("<visibility>" + booleanToInt(visibility) + "</visibility>");
 		}
 		if (open != null) {
 			kml.println("<open>" + booleanToInt(open) + "</open>");

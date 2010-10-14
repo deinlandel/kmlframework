@@ -64,8 +64,4 @@ public class BallonStyle extends KmlObject {
 		}
 		kml.println(-1, "</BallonStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<BallonStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

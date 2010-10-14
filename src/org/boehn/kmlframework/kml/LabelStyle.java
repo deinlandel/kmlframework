@@ -27,8 +27,4 @@ public class LabelStyle extends ColorStyle {
 		}
 		kml.println(-1, "</LabelStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<LabelStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

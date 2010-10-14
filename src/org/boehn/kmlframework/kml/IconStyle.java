@@ -98,8 +98,4 @@ public class IconStyle extends ColorStyle {
 		}
 		kml.println(-1, "</IconStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<IconStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

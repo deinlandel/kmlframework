@@ -13,9 +13,9 @@ public class NetworkLink extends Feature {
 	
 	public NetworkLink() {}
 	
-	public NetworkLink(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, Boolean refreshVisability, Boolean flyToView, Link link) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData);
-		this.refreshVisibility = refreshVisability;
+	public NetworkLink(String name, Boolean visibility, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, Boolean refreshVisibility, Boolean flyToView, Link link) {
+		super(name, visibility, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData);
+		this.refreshVisibility = refreshVisibility;
 		this.flyToView = flyToView;
 		this.link = link;
 	}
@@ -57,9 +57,5 @@ public class NetworkLink extends Feature {
 			link.write(kml);
 		}
 		kml.println(-1, "</NetworkLink>");
-	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<NetworkLink" + getIdAndTargetIdFormatted(kml) + "></>");
 	}
 }

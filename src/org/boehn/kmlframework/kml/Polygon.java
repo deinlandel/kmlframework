@@ -90,8 +90,4 @@ public class Polygon extends Geometry {
 		}
 		kml.println(-1, "</Polygon>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Polygon" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

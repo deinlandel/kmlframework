@@ -40,8 +40,4 @@ public class PolyStyle extends ColorStyle {
 		}
 		kml.println(-1, "</PolyStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<PolyStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

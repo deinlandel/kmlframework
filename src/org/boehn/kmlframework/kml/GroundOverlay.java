@@ -5,7 +5,7 @@ import java.util.List;
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
-public class GroundOverlay extends Overlay {
+public class GroundOverlay extends Overlay implements Deletable {
 
 	private Double altitude;
 	private AltitudeModeEnum altitudeMode;
@@ -17,8 +17,8 @@ public class GroundOverlay extends Overlay {
 	
 	public GroundOverlay() {}
 	
-	public GroundOverlay(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double alititude, AltitudeModeEnum altitudeMode, Double north, Double south, Double east, Double west, Double rotation) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, color, drawOrder, icon);
+	public GroundOverlay(String name, Boolean visibility, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, String color, Integer drawOrder, Icon icon, Double alititude, AltitudeModeEnum altitudeMode, Double north, Double south, Double east, Double west, Double rotation) {
+		super(name, visibility, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, color, drawOrder, icon);
 		this.altitude = alititude;
 		this.altitudeMode = altitudeMode;
 		this.north = north;
@@ -116,6 +116,6 @@ public class GroundOverlay extends Overlay {
 	}
 	
 	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<GroundOverlay" + getIdAndTargetIdFormatted(kml) + "></>");
+		kml.println("<GroundOverlay" + getIdAndTargetIdFormatted(kml) + "></GroundOverlay>");
 	}
 }

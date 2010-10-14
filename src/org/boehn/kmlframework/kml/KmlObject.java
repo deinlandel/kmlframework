@@ -25,8 +25,6 @@ public abstract class KmlObject {
 
 	public abstract void write(Kml kml) throws KmlException;
 	
-	public abstract void writeDelete(Kml kml) throws KmlException;
-	
 	protected String getIdAndTargetIdFormatted(Kml kml) {
 		if (kml.isGenerateObjectIds() && id == null) {
 			setId(UUID.randomUUID().toString());

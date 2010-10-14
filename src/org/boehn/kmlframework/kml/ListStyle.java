@@ -68,8 +68,4 @@ public class ListStyle extends KmlObject {
 		}
 		kml.println(-1, "</ListStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<ListStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

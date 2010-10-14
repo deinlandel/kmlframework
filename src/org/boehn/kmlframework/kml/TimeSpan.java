@@ -38,8 +38,4 @@ public class TimeSpan extends TimePrimitive {
 		}
 		kml.println(-1, "</TimeSpan>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<TimeSpan" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

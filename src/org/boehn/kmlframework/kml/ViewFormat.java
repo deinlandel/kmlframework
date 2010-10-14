@@ -33,8 +33,4 @@ public class ViewFormat extends KmlObject {
 		}
 		kml.println("</viewFormat>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<viewFormat" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

@@ -38,8 +38,4 @@ public class Alias extends KmlObject {
 		}
 		kml.println(-1, "</Alias>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Alias" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

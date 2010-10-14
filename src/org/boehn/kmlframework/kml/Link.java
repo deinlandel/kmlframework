@@ -92,10 +92,6 @@ public class Link extends KmlObject {
 		writeInner(kml);
 		kml.println(-1, "</Link>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Link" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 
 	protected void writeInner(Kml kml) throws KmlException {
 		if (href != null) {
