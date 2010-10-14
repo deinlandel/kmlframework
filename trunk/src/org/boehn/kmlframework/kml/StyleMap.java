@@ -21,8 +21,4 @@ public class StyleMap extends StyleSelector {
 		}
 		kml.println(-1, "</StyleMap>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<StyleMap" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

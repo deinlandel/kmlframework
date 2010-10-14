@@ -11,6 +11,7 @@ public class Kml {
 	protected Feature feature;
 	protected boolean celestialData = false;
 	protected boolean atomElementsIncluded = false;
+	protected boolean extensionElementsIncluded = false;
 	protected boolean generateObjectIds = true;
 	
 	private PrintWriter printWriter;
@@ -64,12 +65,24 @@ public class Kml {
 		this.atomElementsIncluded = atomElementsIncluded;
 	}
 
+	public boolean isExtensionElementsIncluded() {
+		return extensionElementsIncluded;
+	}
+
+	public void setExtensionElementsIncluded(boolean extensionElementsIncluded) {
+		this.extensionElementsIncluded = extensionElementsIncluded;
+	}
+
 	public boolean isGenerateObjectIds() {
 		return generateObjectIds;
 	}
 
 	public void setGenerateObjectIds(boolean generateObjectIds) {
 		this.generateObjectIds = generateObjectIds;
+	}
+	
+	public void printNoIndent(String string) {
+		printWriter.print(string);
 	}
 
 	public void print(String string) {
@@ -113,7 +126,10 @@ public class Kml {
 	}
 	
 	public void write(Kml kml) throws KmlException {
-		kml.println("<kml xmlns=\"http://www.opengis.net/kml/2.2\"" + (celestialData ? " hint=\"target=sky\"" : "") + (atomElementsIncluded ? " xmlns:atom=\"http://www.w3.org/2005/Atom\"" : "") + ">", 1);
+		kml.println("<kml xmlns=\"http://www.opengis.net/kml/2.2\"" + (celestialData ? " hint=\"target=sky\"" : "")
+			+ (atomElementsIncluded ? " xmlns:atom=\"http://www.w3.org/2005/Atom\"" : "")
+			+ (extensionElementsIncluded ? " xmlns:gx=\"http://www.google.com/kml/ext/2.2\"" : "")
+			+ ">", 1);
 		if (networkLinkControl != null) {
 			networkLinkControl.write(kml);
 		}

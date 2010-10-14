@@ -28,8 +28,4 @@ public class Camera extends AbstractView {
 		}
 		kml.println(-1, "</Camera>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Camera" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

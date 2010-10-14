@@ -29,8 +29,4 @@ public class MultiGeometry extends Geometry {
 		}
 		kml.println(-1, "</MultiGeometry>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<MultiGeometry" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

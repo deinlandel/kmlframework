@@ -41,8 +41,4 @@ public class Pair extends KmlObject {
 		kml.println("<styleUrl>" + styleUrl + "</styleUrl>");
 		kml.println(-1, "</Pair>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Pair" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

@@ -72,9 +72,9 @@ public class LinearRing extends Geometry {
 			if (firstLoop) {
 				firstLoop = false;
 			} else {
-				kml.print(" ");
+				kml.printNoIndent(" ");
 			}
-			kml.print(point.getLongitudeLatitudeAltitudeString());
+			kml.printNoIndent(point.getLongitudeLatitudeAltitudeString());
 		}
 		// We add the first coordinate to the end, as KML require the first coordinate to be equal to the last
 		kml.print(" " + coordinates.get(0).getLongitudeLatitudeAltitudeString());
@@ -82,9 +82,5 @@ public class LinearRing extends Geometry {
 		kml.println("</coordinates>");
 
 		kml.println(-1, "</LinearRing>");
-	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<LinearRing" + getIdAndTargetIdFormatted(kml) + "></>");
 	}
 }

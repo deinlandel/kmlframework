@@ -16,6 +16,9 @@ public class Model extends Geometry {
 	private Double scaleZ;
 	private Link link;
 	private List<Alias> resourceMap;
+	private String locationID;
+	private String orientationID;
+	private String scaleID;
 	
 	public Model() {}
 	
@@ -130,13 +133,39 @@ public class Model extends Geometry {
 		this.resourceMap = resourceMap;
 	}
 
+	public String getLocationID() {
+		return locationID;
+	}
+
+	public void setLocationID(String id) {
+		locationID=id;
+	}
+
+	public String getOrientationID() {
+		return orientationID;
+	}
+
+	public void setOrientationID(String id) {
+		orientationID=id;
+	}
+
+	public String getScaleID() {
+		return scaleID;
+	}
+
+	public void setScaleID(String id) {
+		scaleID=id;
+	}
+
 	public void write(Kml kml) throws KmlException {
 		kml.println("<Model" + getIdAndTargetIdFormatted(kml) + ">", 1);
 		if (altitudeMode != null) {
 			kml.println("<altitudeMode>" + altitudeMode + "</altitudeMode>");
 		}
 		if (longitude != null || latitude != null || altitude != null) {
-			kml.println("<Location>", 1);
+			kml.println("<Location"+
+				(locationID==null ? "" : " id=\""+locationID+"\"")
+				+">", 1);
 			if (longitude != null) {				
 				kml.println("<longitude>" + longitude + "</longitude>");
 			}
@@ -149,7 +178,9 @@ public class Model extends Geometry {
 			kml.println(-1, "</Location>");
 		}
 		if (heading != null || tilt != null || roll != null) {
-			kml.println("<Orientation>", 1);
+			kml.println("<Orientation"
+				+(orientationID==null ? "" : " id=\""+orientationID+"\"")
+				+">", 1);
 			if (heading != null) {				
 				kml.println("<heading>" + heading + "</heading>");
 			}
@@ -162,7 +193,9 @@ public class Model extends Geometry {
 			kml.println(-1, "</Orientation>");
 		}
 		if (scaleX != null || scaleY != null || scaleZ != null) {
-			kml.println("<Scale>", 1);
+			kml.println("<Scale"
+				+(scaleID==null ? "" : " id=\""+scaleID+"\"")
+				+">", 1);
 			if (scaleX != null) {				
 				kml.println("<x>" + scaleX + "</x>");
 			}
@@ -185,9 +218,5 @@ public class Model extends Geometry {
 			kml.println(-1, "</ResourceMap>");
 		}
 		kml.println(-1, "</Model>");
-	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Model" + getIdAndTargetIdFormatted(kml) + "></>");
 	}
 }

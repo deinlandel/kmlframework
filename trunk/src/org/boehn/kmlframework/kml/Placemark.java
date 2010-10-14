@@ -5,7 +5,7 @@ import java.util.List;
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
-public class Placemark extends Feature {
+public class Placemark extends Feature implements Deletable {
 
 	private Geometry geometry;
 	
@@ -15,8 +15,8 @@ public class Placemark extends Feature {
 		setName(name);
 	}
 	
-	public Placemark(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, Geometry geometry) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData);
+	public Placemark(String name, Boolean visibility, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, Geometry geometry) {
+		super(name, visibility, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData);
 		this.geometry = geometry;
 	}
 	

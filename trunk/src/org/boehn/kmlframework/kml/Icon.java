@@ -13,8 +13,4 @@ public class Icon extends Link {
 		writeInner(kml);
 		kml.println(-1, "</Icon>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Icon" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

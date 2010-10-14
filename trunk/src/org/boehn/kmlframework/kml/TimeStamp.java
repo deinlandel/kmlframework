@@ -25,8 +25,4 @@ public class TimeStamp extends TimePrimitive {
 		}
 		kml.println(-1, "</TimeStamp>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<TimeStamp" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

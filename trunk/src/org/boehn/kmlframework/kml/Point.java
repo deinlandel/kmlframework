@@ -84,10 +84,6 @@ public class Point extends Geometry {
 		kml.println(-1, "</Point>");
 	}
 	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Point" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
-	
 	public String getLongitudeLatitudeAltitudeString() {
 		return longitude +"," + latitude + (altitude != null? "," + altitude : "");
 	}

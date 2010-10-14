@@ -28,8 +28,4 @@ public class LookAt extends AbstractView {
 		}
 		kml.println(-1, "</LookAt>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<LookAt" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

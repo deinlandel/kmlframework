@@ -29,8 +29,4 @@ public class Schema extends KmlObject {
 		}
 		kml.println(-1, "</Schema>");
 	}
-
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Schema" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

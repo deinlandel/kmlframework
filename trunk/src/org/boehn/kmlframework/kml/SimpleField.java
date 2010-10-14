@@ -45,9 +45,4 @@ public class SimpleField extends KmlObject {
 		}
 		kml.println(-1, "</SimpleField>");
 	}
-
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<SimpleField" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
-
 }

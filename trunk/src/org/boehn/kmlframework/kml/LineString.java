@@ -73,16 +73,12 @@ public class LineString extends Geometry {
 				if (firstLoop) {
 					firstLoop = false;
 				} else {
-					kml.print(" ");
+					kml.printNoIndent(" ");
 				}
-				kml.print(point.getLongitudeLatitudeAltitudeString());
+				kml.printNoIndent(point.getLongitudeLatitudeAltitudeString());
 			}
 			kml.println("</coordinates>");
 		}
 		kml.println(-1, "</LineString>");
-	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<LineString" + getIdAndTargetIdFormatted(kml) + "></>");
 	}
 }

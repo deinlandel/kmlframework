@@ -27,8 +27,4 @@ public class LineStyle extends ColorStyle {
 		}
 		kml.println(-1, "</LineStyle>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<LineStyle" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

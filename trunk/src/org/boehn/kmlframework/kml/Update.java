@@ -37,8 +37,4 @@ public class Update extends KmlObject {
 		}
 		kml.println(-1, "</Update>");
 	}
-	
-	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Update" + getIdAndTargetIdFormatted(kml) + "></>");
-	}
 }

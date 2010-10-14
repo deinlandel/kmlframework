@@ -6,14 +6,14 @@ import java.util.List;
 import org.boehn.kmlframework.atom.AtomAuthor;
 import org.boehn.kmlframework.atom.AtomLink;
 
-public class Document extends Container {
+public class Document extends Container implements Deletable {
 
 	private List<Schema> schemas;
 	
 	public Document() {}
 	
-	public Document(String name, Boolean visability, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, List<Feature> feauters, List<Schema> schemas) {
-		super(name, visability, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, feauters);
+	public Document(String name, Boolean visibility, Boolean open, AtomAuthor atomAuthor, AtomLink atomLink, String address, String xalAddressDetails, String phoneNumber, String snippet, Integer snippetMaxLines,String description, AbstractView abstractView, TimePrimitive timePrimitive, String styleUrl, List<StyleSelector> styleSelectors, Region region, ExtendedData extendedData, List<Feature> feauters, List<Schema> schemas) {
+		super(name, visibility, open, atomAuthor, atomLink, address, xalAddressDetails, phoneNumber, snippet, snippetMaxLines, description, abstractView, timePrimitive, styleUrl, styleSelectors, region, extendedData, feauters);
 		this.schemas = schemas;
 	}
 	
@@ -43,6 +43,6 @@ public class Document extends Container {
 	}
 	
 	public void writeDelete(Kml kml) throws KmlException {
-		kml.println("<Document" + getIdAndTargetIdFormatted(kml) + "></>");
+		kml.println("<Document" + getIdAndTargetIdFormatted(kml) + "></Document>");
 	}
 }
