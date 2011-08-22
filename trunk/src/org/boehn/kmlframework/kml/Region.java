@@ -140,6 +140,7 @@ public class Region extends KmlObject {
 		kml.println("<east>" + east + "</east>");
 		kml.println("<west>" + west + "</west>");
 		kml.println(-1, "<LatLonAltBox>");
+		kml.println(-1, "</LatLonAltBox>");
 		if (minAltitude != null) {
 			kml.println("<minAltitude>" + minAltitude + "</minAltitude>");
 		}
@@ -167,6 +168,7 @@ public class Region extends KmlObject {
 				kml.println("<maxFadeExtent>" + maxFadeExtent + "</maxFadeExtent>");
 			}
 			kml.println(-1, "<Lod>");
+			kml.println(-1, "</Lod>");
 		}
 		kml.println(-1, "</Region>");
 	}
