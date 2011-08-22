@@ -103,9 +103,6 @@ public class Link extends KmlObject {
 		if (refreshInterval != null) {
 			kml.println("<refreshInterval>" + refreshInterval + "</refreshInterval>");
 		}
-		if (refreshInterval != null) {
-			kml.println("<refreshInterval>" + refreshInterval + "</refreshInterval>");
-		}
 		if (viewRefreshMode != null) {
 			kml.println("<viewRefreshMode>" + viewRefreshMode + "</viewRefreshMode>");
 		}
