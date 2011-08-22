@@ -27,7 +27,7 @@ public abstract class KmlObject {
 	
 	protected String getIdAndTargetIdFormatted(Kml kml) {
 		if (kml.isGenerateObjectIds() && id == null) {
-			setId(UUID.randomUUID().toString());
+			setId("id"+UUID.randomUUID().toString());
 		}
 		String result = "";
 		if (id != null) {
