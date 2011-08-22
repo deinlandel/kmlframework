@@ -1,15 +1,15 @@
 package org.boehn.kmlframework.kml;
 
-public class BallonStyle extends KmlObject {
+public class BalloonStyle extends KmlObject {
 
 	private String bgColor;
 	private String textColor;
 	private String text;
 	private DisplayModeEnum displayMode;
 	
-	public BallonStyle() {}
+	public BalloonStyle() {}
 	
-	public BallonStyle(String bgColor, String textColor, String text, DisplayModeEnum displayMode) {
+	public BalloonStyle(String bgColor, String textColor, String text, DisplayModeEnum displayMode) {
 		this.bgColor = bgColor;
 		this.textColor = textColor;
 		this.text = text;
@@ -49,7 +49,7 @@ public class BallonStyle extends KmlObject {
 	}
 
 	public void write(Kml kml) throws KmlException {
-		kml.println("<BallonStyle" + getIdAndTargetIdFormatted(kml) + ">", 1);
+		kml.println("<BalloonStyle" + getIdAndTargetIdFormatted(kml) + ">", 1);
 		if (bgColor != null) {
 			kml.println("<bgColor>" + bgColor + "</bgColor>");
 		}
@@ -62,6 +62,6 @@ public class BallonStyle extends KmlObject {
 		if (displayMode != null) {
 			kml.println("<displayMode>" + (displayMode == DisplayModeEnum._default ? "default" : displayMode) + "</displayMode>");
 		}
-		kml.println(-1, "</BallonStyle>");
+		kml.println(-1, "</BalloonStyle>");
 	}
 }
