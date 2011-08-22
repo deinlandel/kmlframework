@@ -6,12 +6,12 @@ public class Style extends StyleSelector {
 	private LabelStyle labelStyle;
 	private LineStyle lineStyle;
 	private PolyStyle polyStyle;
-	private BallonStyle ballonStyle;
+	private BalloonStyle ballonStyle;
 	private ListStyle listStyle;
 
 	public Style() {}
 	
-	public Style(IconStyle iconStyle, LabelStyle labelStyle, LineStyle lineStyle, PolyStyle polyStyle, BallonStyle ballonStyle, ListStyle listStyle) {
+	public Style(IconStyle iconStyle, LabelStyle labelStyle, LineStyle lineStyle, PolyStyle polyStyle, BalloonStyle ballonStyle, ListStyle listStyle) {
 		this.iconStyle = iconStyle;
 		this.labelStyle = labelStyle;
 		this.lineStyle = lineStyle;
@@ -52,11 +52,11 @@ public class Style extends StyleSelector {
 		this.polyStyle = polyStyle;
 	}
 
-	public BallonStyle getBallonStyle() {
+	public BalloonStyle getBallonStyle() {
 		return ballonStyle;
 	}
 
-	public void setBallonStyle(BallonStyle ballonStyle) {
+	public void setBallonStyle(BalloonStyle ballonStyle) {
 		this.ballonStyle = ballonStyle;
 	}
 
